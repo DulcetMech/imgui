@@ -75,18 +75,12 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 source_group("Header Files" FILES
     ${HEADERS_CXX_FILES}
 )
-source_group("Header Files\\Impl" FILES
-    ${HEADERS_CXX_IMPL_FILES}
-)
+
 source_group("Source Files" FILES
     ${SOURCES_CXX_FILES}
 )
-source_group("Source Files\\Impl" FILES
-    ${SOURCES_CXX_IMPL_FILES}
-)
-source_group("Resource Files" FILES
-    ${FONTS_FILES}
-)
+
+
 
 
 ##################################################################################################################
@@ -96,13 +90,9 @@ add_library(${PROJECT_NAME}
 	STATIC
     ${HEADERS_CXX_FILES}
     ${SOURCES_CXX_FILES}
-    ${HEADERS_CXX_IMPL_FILES}
-    ${SOURCES_CXX_IMPL_FILES}
-    ${FONTS_FILES}
 )
 target_include_directories(${PROJECT_NAME} PUBLIC 
     ${SOURCE_DIR}
-    ${SOURCE_DIR}/examples
 )
 if(IMGUI_IMPL_DX12 AND NOT IMGUI_STATIC_LIBRARY)
     target_link_libraries(${PROJECT_NAME} PUBLIC d3d12)
