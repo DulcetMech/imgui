@@ -33,9 +33,11 @@ project "ImGui"
 		staticruntime "On"
 
 	filter "configurations:Debug"
+		defines {"_CRT_SECURE_NO_WARNINGS" }
 		runtime "Debug"
 		symbols "on"
 
 	filter "configurations:Release"
+		defines {"_CRT_SECURE_NO_WARNINGS" }
 		runtime "Release"
 		optimize "on"
