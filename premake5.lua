@@ -24,13 +24,13 @@ project "ImGui"
 	filter "system:windows"
 		systemversion "latest"
 		cppdialect "C++20"
-		staticruntime "On"
+		staticruntime "Off"
 
 	filter "system:linux"
 		pic "On"
 		systemversion "latest"
 		cppdialect "C++20"
-		staticruntime "On"
+		staticruntime "Off"
 
 	filter "configurations:Debug"
 		defines {"_CRT_SECURE_NO_WARNINGS" }
