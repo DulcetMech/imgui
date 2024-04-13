@@ -1,14 +1,14 @@
 project "ImGui"
 	kind "StaticLib"
 	language "C++"
-	staticruntime "off"
+    staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	files
 	{
-		"imgui.cpp",        
+		"imgui.cpp",
 		"imgui_demo.cpp",
 		"imgui_draw.cpp",
 		"imgui_tables.cpp",
@@ -24,20 +24,21 @@ project "ImGui"
 	filter "system:windows"
 		systemversion "latest"
 		cppdialect "C++20"
-		staticruntime "Off"
 
 	filter "system:linux"
 		pic "On"
 		systemversion "latest"
 		cppdialect "C++20"
-		staticruntime "Off"
 
 	filter "configurations:Debug"
-		defines {"_CRT_SECURE_NO_WARNINGS" }
 		runtime "Debug"
 		symbols "on"
 
 	filter "configurations:Release"
-		defines {"_CRT_SECURE_NO_WARNINGS" }
 		runtime "Release"
 		optimize "on"
+
+    filter "configurations:Dist"
+		runtime "Release"
+		optimize "on"
+        symbols "off"
